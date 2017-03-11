@@ -1,0 +1,544 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10100.16.1103.2343                               -->
+<workbook source-build='10.1.1 (10100.16.1103.2343)' source-platform='win' version='10.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Movies+ (IMDB)' inline='true' name='federated.1qpnk711s1hsyz1abeyq71fxh6hm' version='10.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='localhost' name='sqlserver.1wfi92u1y1nmnj16s1g8a1vffxhy'>
+            <connection authentication='sspi' class='sqlserver' dbname='IMDB' minimum-driver-version='SQL Server Native Client 10.0' odbc-native-protocol='yes' one-time-sql='' server='localhost' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[Movie_Genres].[GenreID]' />
+              <expression op='[Genre].[GenreID]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[Movies].[MovieID]' />
+                <expression op='[Movie_Genres].[MovieID]' />
+              </expression>
+            </clause>
+            <relation connection='sqlserver.1wfi92u1y1nmnj16s1g8a1vffxhy' name='Movies' table='[dbo].[Movies]' type='table' />
+            <relation connection='sqlserver.1wfi92u1y1nmnj16s1g8a1vffxhy' name='Movie_Genres' table='[dbo].[Movie_Genres]' type='table' />
+          </relation>
+          <relation connection='sqlserver.1wfi92u1y1nmnj16s1g8a1vffxhy' name='Genre' table='[dbo].[Genre]' type='table' />
+        </relation>
+        <cols>
+          <map key='[CountryRegionID]' value='[Movies].[CountryRegionID]' />
+          <map key='[Duration]' value='[Movies].[Duration]' />
+          <map key='[GenreID (Genre)]' value='[Genre].[GenreID]' />
+          <map key='[GenreID]' value='[Movie_Genres].[GenreID]' />
+          <map key='[MPAARatingID]' value='[Movies].[MPAARatingID]' />
+          <map key='[MetaScore]' value='[Movies].[MetaScore]' />
+          <map key='[MovieID (Movie_Genres)]' value='[Movie_Genres].[MovieID]' />
+          <map key='[MovieID]' value='[Movies].[MovieID]' />
+          <map key='[MovieLink]' value='[Movies].[MovieLink]' />
+          <map key='[Rating count]' value='[Movies].[Rating count]' />
+          <map key='[Rating]' value='[Movies].[Rating]' />
+          <map key='[ReleaseDate]' value='[Movies].[ReleaseDate]' />
+          <map key='[Synopsis]' value='[Movies].[Synopsis]' />
+          <map key='[Title]' value='[Movies].[Title]' />
+          <map key='[Type]' value='[Genre].[Type]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>MovieID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[MovieID]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>MovieID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Title]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>Title</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Synopsis</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Synopsis]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>Synopsis</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Duration</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Duration]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>Duration</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ReleaseDate</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[ReleaseDate]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>ReleaseDate</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+              <attribute datatype='boolean' name='TypeIsDateTime2orDate'>true</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MetaScore</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[MetaScore]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>MetaScore</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MovieLink</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[MovieLink]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>MovieLink</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rating</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Rating]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>Rating</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rating count</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Rating count]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>Rating count</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MPAARatingID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[MPAARatingID]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>MPAARatingID</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CountryRegionID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CountryRegionID]</local-name>
+            <parent-name>[Movies]</parent-name>
+            <remote-alias>CountryRegionID</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MovieID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[MovieID (Movie_Genres)]</local-name>
+            <parent-name>[Movie_Genres]</parent-name>
+            <remote-alias>MovieID</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GenreID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[GenreID]</local-name>
+            <parent-name>[Movie_Genres]</parent-name>
+            <remote-alias>GenreID</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GenreID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[GenreID (Genre)]</local-name>
+            <parent-name>[Genre]</parent-name>
+            <remote-alias>GenreID</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Type]</local-name>
+            <parent-name>[Genre]</parent-name>
+            <remote-alias>Type</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='2147483649' name='LEN_RUS_S2_VWIN' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='Country Region ID' datatype='integer' name='[CountryRegionID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[GenreID (Genre)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Genre ID' datatype='integer' name='[GenreID]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='MPAA Rating ID' datatype='integer' name='[MPAARatingID]' role='dimension' type='ordinal' />
+      <column caption='Meta Score' datatype='integer' name='[MetaScore]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='MovieID (Movie Genres)' datatype='integer' name='[MovieID (Movie_Genres)]' role='dimension' type='ordinal' />
+      <column caption='Movie ID' datatype='integer' name='[MovieID]' role='dimension' type='ordinal' />
+      <column caption='Movie Link' datatype='string' name='[MovieLink]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Release Date' datatype='date' name='[ReleaseDate]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[Type]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.658108' measure-ordering='alphabetic' measure-percentage='0.341892' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <filter class='categorical' column='[Type]' filter-group='2'>
+        <groupfilter from='&quot;Action&quot;' function='range' level='[Type]' to='&quot;Western&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Movies+ (IMDB)' name='federated.1qpnk711s1hsyz1abeyq71fxh6hm' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1qpnk711s1hsyz1abeyq71fxh6hm'>
+            <column datatype='integer' name='[Rating]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Title]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Type]' role='dimension' type='nominal' />
+            <column-instance column='[Title]' derivation='Count' name='[cnt:Title:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Rating]' derivation='None' name='[none:Rating:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Type]' derivation='None' name='[none:Type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1qpnk711s1hsyz1abeyq71fxh6hm].[none:Rating:qk]' included-values='in-range'>
+            <min>7</min>
+            <max>10</max>
+          </filter>
+          <slices>
+            <column>[federated.1qpnk711s1hsyz1abeyq71fxh6hm].[none:Rating:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1qpnk711s1hsyz1abeyq71fxh6hm].[cnt:Title:qk]</rows>
+        <cols>[federated.1qpnk711s1hsyz1abeyq71fxh6hm].[none:Type:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
